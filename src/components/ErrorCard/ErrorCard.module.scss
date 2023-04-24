@@ -1,0 +1,14 @@
+.errorCard {
+  margin: 1.5rem 0 3rem;
+  padding: 30px 24px 40px;
+  background-image: url('../../assets/bgi-weather.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+}
+
+.errorMassage {
+  font-size: 25px;
+  color: red;
+}
