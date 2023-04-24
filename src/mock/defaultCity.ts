@@ -1,4 +1,4 @@
-export const defaultUser = {
+export const defaultCity = {
   location: {
     name: 'Краснодар',
     country: 'Россия',

@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Button.module.scss'
 
 interface ButtonProps {
   children: string,
@@ -7,7 +8,7 @@ interface ButtonProps {
 
 const Button = ({children, onClick}: ButtonProps) => {
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className={styles.button}>
       {children}
     </button>
   )
