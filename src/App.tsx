@@ -20,7 +20,6 @@ function App() {
 
     if (isChecked) {
       localStorage.setItem('city', JSON.stringify(city))
-      console.log(localStorage.getItem('city'))
     }
   }
 
@@ -36,6 +35,7 @@ function App() {
       setCity(null)
     }
   }
+
 
   return (
     <Container>
