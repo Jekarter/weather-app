@@ -2,12 +2,13 @@ import Button from 'components/Button/Button'
 import React, { useState } from 'react'
 import styles from './Search.module.scss'
 
+
 interface SearchProps {
   onSubmit: (text: string) => void,
   onChangeCheckbox: (isChecked: boolean) => void,
 }
 
-type FormFields = {
+export type FormFields = {
   cityname: HTMLInputElement,
 }
 
@@ -30,17 +31,19 @@ const Search = ({ onSubmit, onChangeCheckbox }: SearchProps) => {
     onChangeCheckbox(event.target.checked)
   }
 
+
+
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
       <div className={styles.search}>
         <label htmlFor="search" className={styles.label} />
         <input 
           type="text"
-          id="search"
+          id="search" 
           className={styles.textField}
           name="cityname"
           placeholder='Введите ваш город'
-          onChange={handleChange}
+
         />
         <Button>Поиск</Button>
       </div>
@@ -61,3 +64,52 @@ const Search = ({ onSubmit, onChangeCheckbox }: SearchProps) => {
 }
 
 export default Search
+
+
+
+/* Autocomplte
+const urlAutoComplete = 'http://api.weatherapi.com/v1/search.json?key=4f254a5b5c994fceb2174829232204&q=lon'
+
+  const [searchCity, setSearchCity] = useState([])
+  const [textSearch, setTextSearch] = useState('')
+  const [suggestion, setSaggestion] = useState([])
+
+  
+ /*  const autoComplete = (event: React.ChangeEvent<HTMLInputElement & FormFields>): void => {
+    const text = event.currentTarget.cityname.value
+
+    const instance = axios.get(urlAutoComplete + text)
+  } 
+
+
+  useEffect(() => {
+    const loadCitys = async () => {
+      const response = await axios.get(urlAutoComplete)
+      console.log(response.data)
+      setSearchCity(response.data)
+    }
+    loadCitys()
+  }, [])
+
+  const onSuggestHandler = (textSearch: string) => {
+    setTextSearch(textSearch)
+  }
+  
+  const onChangeAutoCompleteHandler = (textSearch: string) => {
+    let matches: never[] = []
+    console.log(searchCity)
+    if (textSearch.length > 3) {
+      matches = searchCity.filter((city: string) => {
+        const regex = new RegExp(`${textSearch}`, 'gi');
+        return city.includes(regex)
+      })
+    }
+    console.log(matches)
+    setSaggestion(matches)
+    console.log('sugg', suggestion)
+    setTextSearch(textSearch)
+  }
+
+input           onChange={evt => onChangeAutoCompleteHandler(evt.currentTarget.value)}
+          value={textSearch}
+*/
